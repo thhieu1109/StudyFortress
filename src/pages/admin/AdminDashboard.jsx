@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import SidebarAdmin from '../../components/admin/SidebarAdmin';
 import HeaderAdmin from '../../components/admin/HeaderAdmin';
-import AppRoutes from '../../routes/AppRoutes';
+import AdminRoutes from '../../routes/AdminRoutes';
 
 function AdminDashboard(props) {
 
@@ -13,7 +13,7 @@ function AdminDashboard(props) {
             <div className="flex-1 flex flex-col">
                 <HeaderAdmin userName="John Doe" />
                 <div className="flex-1 p-6 overflow-y-auto">
-                    <AppRoutes />
+                    <AdminRoutes />
                 </div>
                 
             </div>

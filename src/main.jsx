@@ -6,6 +6,7 @@ import { BrowserRouter } from 'react-router'
 import CategoryProvider from './contexts/CategoryProvider.jsx'
 import SubCategoryProvider from './contexts/SubCategoryProvider.jsx'
 import AccountsProvider from './contexts/AccountProvider.jsx'
+import AuthProvider from './contexts/AuthProvider.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -13,7 +14,9 @@ createRoot(document.getElementById('root')).render(
       <CategoryProvider>
         <SubCategoryProvider>
           <AccountsProvider>
-            <App />
+            <AuthProvider>
+              <App />
+            </AuthProvider>
           </AccountsProvider>
         </SubCategoryProvider>
       </CategoryProvider>

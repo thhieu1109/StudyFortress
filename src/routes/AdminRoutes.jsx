@@ -7,7 +7,7 @@ import SubCategories from '../pages/admin/subCategories/SubCategories';
 
 
 
-function AppRoutes() {
+function AdminRoutes() {
     return (
         <Routes>  
             <Route path="/categories" element={<Categories />} />
@@ -16,4 +16,4 @@ function AppRoutes() {
     );
 }
 
-export default AppRoutes;
+export default AdminRoutes;

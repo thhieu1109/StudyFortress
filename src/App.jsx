@@ -1,17 +1,25 @@
-
 import './App.css'
-import LoginRegisterPage from './pages/client/LoginRegisterPage';
+import { useContext } from "react";
+import { AuthContexts } from "./contexts/AuthProvider";
+
+import AuthPage from './pages/client/AuthPage'
+import HomePage from './pages/client/HomePage'
+import AdminDashboard from './pages/admin/AdminDashboard'
 
 function App() {
-
-// dùng toán tử 3 ngôi 
+  const { accountLogin } = useContext(AuthContexts);
 
   return (
     <>
-      <HomePage />
-      <LoginRegisterPage/>
+      {
+        accountLogin 
+          ? accountLogin.role === "admin"
+              ? <AdminDashboard />
+              : <HomePage />
+              : <AuthPage />
+      }
     </>
-  )
+  );
 }
 
-export default App
+export default App;
