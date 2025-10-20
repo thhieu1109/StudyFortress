@@ -6,7 +6,6 @@ import {
   Checkbox,
   FormControlLabel,
   Divider,
-  Link,
   Fade,
   Stack,
   Avatar,
@@ -19,17 +18,17 @@ import {
   Facebook,
   ArrowForward
 } from '@mui/icons-material';
-import CustomTextField from './CustomTextField';
-import SocialButton from './SocialButton';
+import CustomTextField from '../../../components/client/Auth/CustomTextField';
+import SocialButton from '../../../components/client/Auth/SocialButton';
 
 
-import { useNavigate } from 'react-router';
+import { Link, useNavigate } from 'react-router';
 import { useAccounts } from '../../../contexts/AccountProvider';
 import { useAuth } from '../../../contexts/AuthProvider';
 
 const LoginForm = ({ onSwitchToRegister }) => {
   const { login } = useAuth();     // ✅ lấy hàm login từ AuthProvider
-  const accounts = useAccounts();     // ✅ lấy danh sách account từ Firestore
+
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
@@ -55,18 +54,16 @@ const LoginForm = ({ onSwitchToRegister }) => {
       setError(result.message);
       return;
     }
-
-    // ✅ Nếu login thành công -> lấy account từ context
-    if (result.user?.role === "admin") {
-      navigate("/admin");
-    } else {
-      navigate("/home");
-    }
+    // ✅ Lưu thông tin user và token vào localStorage
+    localStorage.setItem("user", JSON.stringify(result.user));
+    console.log("Login Success")
+    navigate("/")
   };
 
   return (
-    <Fade in timeout={600}>
-      <Box>
+
+    <Fade in timeout={600} >
+      <Box sx={{ mt: 4 }}>
         <Box textAlign="center" mb={4}>
           <Avatar
             sx={{
@@ -157,7 +154,7 @@ const LoginForm = ({ onSwitchToRegister }) => {
 
         <Typography variant="body2" textAlign="center" mt={4} color="text.secondary">
           Chưa có tài khoản?{" "}
-          <Link
+          <div
             component="button"
             variant="body2"
             color="primary"
@@ -166,7 +163,7 @@ const LoginForm = ({ onSwitchToRegister }) => {
             sx={{ textDecoration: 'none' }}
           >
             Đăng ký ngay
-          </Link>
+          </div>
         </Typography>
       </Box>
     </Fade>

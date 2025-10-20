@@ -6,8 +6,8 @@ import {
 } from '@mui/material';
 import { ThemeProvider } from '@mui/material/styles';
 
-import LoginForm from '../../components/client/Auth/LoginForm';
-import RegisterForm from '../../components/client/Auth/RegisterForm';
+import LoginForm from './auth/LoginForm';
+import RegisterForm from './auth/RegisterForm';
 import AuthTheme from '../../components/client/Auth/AuthTheme';
 
 const AuthPage = () => {
