@@ -216,7 +216,7 @@ const RegisterForm = ({ onSwitchToLogin }) => {
                     {/* Switch to Login */}
                     <Typography variant="body2" textAlign="center" color="text.secondary">
                         Đã có tài khoản?{" "}
-                        <Link to="/login"
+                        <div to="/login"
                             component="button"
                             variant="body2"
                             color="primary"
@@ -225,7 +225,7 @@ const RegisterForm = ({ onSwitchToLogin }) => {
                             sx={{ textDecoration: 'none' }}
                         >
                             Đăng nhập ngay
-                        </Link>
+                        </div>
                     </Typography>
                 </Box>
             </Slide>
